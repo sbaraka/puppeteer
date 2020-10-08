@@ -34,7 +34,8 @@
     "generate-docs": "npm run tsc && api-extractor run --local --verbose && api-documenter markdown -i temp -o new-docs",
     "ensure-new-docs-up-to-date": "npm run generate-docs && git status && exit `git status --porcelain | head -255 | wc -l`",
     "generate-dependency-graph": "echo 'Requires graphviz installed locally!' && depcruise --exclude 'api.ts' --do-not-follow '^node_modules' --output-type dot src/index.ts | dot -T png > dependency-chart.png",
-    "ensure-correct-devtools-protocol-revision": "ts-node -s scripts/ensure-correct-devtools-protocol-package"
+    "ensure-correct-devtools-protocol-revision": "ts-node -s scripts/ensure-correct-devtools-protocol-package",
+    "release": "standard-version"
   },
   "files": [
     "lib/",
@@ -96,6 +97,7 @@
     "pngjs": "^5.0.0",
     "prettier": "^2.0.5",
     "sinon": "^9.0.2",
+    "standard-version": "^9.0.0",
     "text-diff": "^1.0.1",
     "ts-node": "^8.10.2",
     "typescript": "3.9.5"
